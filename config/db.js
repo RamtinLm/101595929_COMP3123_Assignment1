@@ -14,8 +14,10 @@ const connectDB = async () => {
     }
 
     // dbName forces the database name no matter what the URI says
+    // serverSelectionTimeoutMS: give up after 5 seconds instead of the default 30
     await mongoose.connect(process.env.MONGODB_URI, {
-        dbName: "comp3123_assignment1"
+        dbName: "comp3123_assignment1",
+        serverSelectionTimeoutMS: 5000
     })
 
     logger.info("Successfully connected to the MongoDB Atlas server")

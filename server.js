@@ -7,10 +7,14 @@ if(!process.env.VERCEL){
 
 const express = require("express")
 const mongoose = require("mongoose")
+const helmet = require("helmet")
 const connectDB = require("./config/db.js")
 const logger = require("./utils/logger.js")
 const requestLogger = require("./middleware/requestLogger.js")
+const { apiLimiter } = require("./middleware/rateLimiter.js")
+const { notFound, errorHandler } = require("./middleware/errorHandler.js")
 const userRoutes = require("./routes/userRoutes.js")
+const employeeRoutes = require("./routes/employeeRoutes.js")
 
 
 // Stop right away if a required setting is missing
@@ -28,11 +32,19 @@ const PORT = process.env.PORT || 8081
 
 const app = express()
 
+// On Vercel the app sits behind a proxy, trust it so req.ip is the real client IP
+// (the rate limiter counts requests per IP)
+if(process.env.VERCEL){
+    app.set("trust proxy", 1)
+}
+
+
 // Middleware
 // Request logger goes first so even bad requests (broken JSON) get logged
 app.use(requestLogger)
-app.use(express.json()) // Parse JSON bodies
-app.use(express.urlencoded({ extended: true })) // Parse form bodies
+app.use(helmet()) // Security headers, also removes X-Powered-By
+app.use(express.json({ limit: "10kb" })) // Parse JSON bodies, reject huge ones
+app.use(express.urlencoded({ extended: true, limit: "10kb" })) // Parse form bodies
 
 
 // Root route
@@ -64,6 +76,10 @@ app.get("/health", async (req, res) => {
 })
 
 
+// General rate limit for all API routes
+app.use("/api", apiLimiter)
+
+
 // Every route below this line needs the DB
 // Express 5 sends errors from async middleware to the error handler by itself
 app.use(async (req, res, next) => {
@@ -74,6 +90,12 @@ app.use(async (req, res, next) => {
 
 // API routes
 app.use("/api/v1/user", userRoutes)
+app.use("/api/v1/emp", employeeRoutes)
+
+
+// Unknown routes, then the central error handler (must be last)
+app.use(notFound)
+app.use(errorHandler)
 
 
 // Vercel runs the app itself, so only listen when running locally
