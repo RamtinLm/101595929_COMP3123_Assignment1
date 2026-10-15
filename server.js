@@ -10,6 +10,19 @@ const mongoose = require("mongoose")
 const connectDB = require("./config/db.js")
 const logger = require("./utils/logger.js")
 const requestLogger = require("./middleware/requestLogger.js")
+const userRoutes = require("./routes/userRoutes.js")
+
+
+// Stop right away if a required setting is missing
+// Only the names are logged, never the values
+const REQUIRED_ENV = ["MONGODB_URI", "JWT_SECRET"]
+const missingEnv = REQUIRED_ENV.filter((name) => !process.env[name])
+
+if(missingEnv.length > 0){
+    logger.error("Missing environment variables: " + missingEnv.join(", "))
+    throw new Error("Missing environment variables: " + missingEnv.join(", "))
+}
+
 
 const PORT = process.env.PORT || 8081
 
@@ -59,7 +72,8 @@ app.use(async (req, res, next) => {
 })
 
 
-// Routes go here (step 5 and 6)
+// API routes
+app.use("/api/v1/user", userRoutes)
 
 
 // Vercel runs the app itself, so only listen when running locally
