@@ -8,12 +8,16 @@ if(!process.env.VERCEL){
 const express = require("express")
 const mongoose = require("mongoose")
 const connectDB = require("./config/db.js")
+const logger = require("./utils/logger.js")
+const requestLogger = require("./middleware/requestLogger.js")
 
 const PORT = process.env.PORT || 8081
 
 const app = express()
 
 // Middleware
+// Request logger goes first so even bad requests (broken JSON) get logged
+app.use(requestLogger)
 app.use(express.json()) // Parse JSON bodies
 app.use(express.urlencoded({ extended: true })) // Parse form bodies
 
@@ -34,7 +38,7 @@ app.get("/health", async (req, res) => {
     try{
         await connectDB()
     } catch(err){
-        console.log("Health check could not reach the DB:", err.message)
+        logger.error("Health check could not reach the DB: " + err.message)
     }
 
     res.status(200).send({
@@ -61,8 +65,10 @@ app.use(async (req, res, next) => {
 // Vercel runs the app itself, so only listen when running locally
 if(!process.env.VERCEL){
     app.listen(PORT, () => {
-        console.log(`Server listening on port ${PORT}`)
+        logger.info(`Server listening on port ${PORT}`)
     })
+} else {
+    logger.info("App loaded on Vercel")
 }
 
 // Vercel needs the app exported (CommonJS)
