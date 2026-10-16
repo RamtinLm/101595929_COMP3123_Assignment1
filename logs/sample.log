@@ -1,0 +1,117 @@
+[2026-10-15T23:35:57.777Z] [INFO] Server listening on port 8081
+[2026-10-15T23:42:20.371Z] [INFO] Successfully connected to the MongoDB Atlas server
+[2026-10-15T23:42:20.378Z] [INFO] GET /health 200 - 1103ms - ip ::1
+[2026-10-15T23:45:13.788Z] [INFO] New user signed up: usera (6ad16589ae25e71ffd985d0f)
+[2026-10-15T23:45:13.789Z] [INFO] POST /api/v1/user/signup 201 - 261ms - ip ::1
+[2026-10-15T23:45:20.341Z] [INFO] New user signed up: userb (6ad16590ae25e71ffd985d10)
+[2026-10-15T23:45:20.341Z] [INFO] POST /api/v1/user/signup 201 - 228ms - ip ::1
+[2026-10-15T23:45:26.513Z] [WARN] Signup rejected: username already exists
+[2026-10-15T23:45:26.514Z] [WARN] POST /api/v1/user/signup 409 - 120ms - ip ::1
+[2026-10-15T23:45:38.743Z] [WARN] Signup rejected: email already exists
+[2026-10-15T23:45:38.744Z] [WARN] POST /api/v1/user/signup 409 - 70ms - ip ::1
+[2026-10-15T23:45:54.066Z] [WARN] Validation failed on POST /api/v1/user/signup - fields: email
+[2026-10-15T23:45:54.066Z] [WARN] POST /api/v1/user/signup 400 - 3ms - ip ::1
+[2026-10-15T23:46:03.038Z] [WARN] Validation failed on POST /api/v1/user/signup - fields: password
+[2026-10-15T23:46:03.039Z] [WARN] POST /api/v1/user/signup 400 - 2ms - ip ::1
+[2026-10-15T23:46:13.412Z] [WARN] Validation failed on POST /api/v1/user/signup - fields: username, email, password
+[2026-10-15T23:46:13.413Z] [WARN] POST /api/v1/user/signup 400 - 2ms - ip ::1
+[2026-10-15T23:46:20.465Z] [WARN] Malformed JSON on POST /api/v1/user/signup
+[2026-10-15T23:46:20.466Z] [WARN] POST /api/v1/user/signup 400 - 4ms - ip ::1
+[2026-10-15T23:47:04.489Z] [INFO] User logged in: usera (6ad16589ae25e71ffd985d0f)
+[2026-10-15T23:47:04.489Z] [INFO] POST /api/v1/user/login 200 - 146ms - ip ::1
+[2026-10-15T23:47:12.542Z] [INFO] User logged in: userb (6ad16590ae25e71ffd985d10)
+[2026-10-15T23:47:12.542Z] [INFO] POST /api/v1/user/login 200 - 144ms - ip ::1
+[2026-10-15T23:47:18.007Z] [WARN] Failed login attempt for username: usera
+[2026-10-15T23:47:18.008Z] [WARN] POST /api/v1/user/login 401 - 155ms - ip ::1
+[2026-10-15T23:47:23.150Z] [WARN] Validation failed on POST /api/v1/user/login - fields: password, body
+[2026-10-15T23:47:23.151Z] [WARN] POST /api/v1/user/login 400 - 3ms - ip ::1
+[2026-10-15T23:48:14.334Z] [INFO] Employee created: 6ad1663eae25e71ffd985d11 by user 6ad16589ae25e71ffd985d0f
+[2026-10-15T23:48:14.335Z] [INFO] POST /api/v1/emp/employees 201 - 194ms - ip ::1
+[2026-10-15T23:48:20.710Z] [INFO] Employee created: 6ad16644ae25e71ffd985d12 by user 6ad16589ae25e71ffd985d0f
+[2026-10-15T23:48:20.710Z] [INFO] POST /api/v1/emp/employees 201 - 182ms - ip ::1
+[2026-10-15T23:48:24.399Z] [INFO] Employee created: 6ad16648ae25e71ffd985d13 by user 6ad16590ae25e71ffd985d10
+[2026-10-15T23:48:24.400Z] [INFO] POST /api/v1/emp/employees 201 - 162ms - ip ::1
+[2026-10-15T23:48:27.748Z] [WARN] Validation failed on POST /api/v1/emp/employees - fields: salary, date_of_joining, last_name, position, department, email
+[2026-10-15T23:48:27.749Z] [WARN] POST /api/v1/emp/employees 400 - 59ms - ip ::1
+[2026-10-15T23:48:40.129Z] [WARN] Validation failed on POST /api/v1/emp/employees - fields: email
+[2026-10-15T23:48:40.130Z] [WARN] POST /api/v1/emp/employees 400 - 57ms - ip ::1
+[2026-10-15T23:48:44.225Z] [WARN] Validation failed on POST /api/v1/emp/employees - fields: salary
+[2026-10-15T23:48:44.226Z] [WARN] POST /api/v1/emp/employees 400 - 84ms - ip ::1
+[2026-10-15T23:48:47.954Z] [WARN] Validation failed on POST /api/v1/emp/employees - fields: date_of_joining
+[2026-10-15T23:48:47.955Z] [WARN] POST /api/v1/emp/employees 400 - 72ms - ip ::1
+[2026-10-15T23:48:51.866Z] [WARN] Duplicate key on POST /api/v1/emp/employees: email
+[2026-10-15T23:48:51.867Z] [WARN] POST /api/v1/emp/employees 409 - 272ms - ip ::1
+[2026-10-15T23:48:55.492Z] [WARN] Auth failed: missing token on POST /api/v1/emp/employees
+[2026-10-15T23:48:55.493Z] [WARN] POST /api/v1/emp/employees 401 - 1ms - ip ::1
+[2026-10-15T23:48:58.891Z] [WARN] Auth failed: invalid token on POST /api/v1/emp/employees
+[2026-10-15T23:48:58.892Z] [WARN] POST /api/v1/emp/employees 401 - 2ms - ip ::1
+[2026-10-15T23:49:03.925Z] [WARN] Auth failed: expired token on POST /api/v1/emp/employees
+[2026-10-15T23:49:03.926Z] [WARN] POST /api/v1/emp/employees 401 - 2ms - ip ::1
+[2026-10-15T23:50:45.766Z] [INFO] GET /api/v1/emp/employees 200 - 120ms - ip ::1
+[2026-10-15T23:51:10.567Z] [INFO] GET /api/v1/emp/employees 200 - 111ms - ip ::1
+[2026-10-15T23:51:17.757Z] [INFO] GET /api/v1/emp/employees/6ad1663eae25e71ffd985d11 200 - 101ms - ip ::1
+[2026-10-15T23:51:32.867Z] [WARN] GET /api/v1/emp/employees/6ad0000000000000000000aa 404 - 101ms - ip ::1
+[2026-10-15T23:51:39.196Z] [WARN] Validation failed on GET /api/v1/emp/employees/123abc - fields: eid
+[2026-10-15T23:51:39.197Z] [WARN] GET /api/v1/emp/employees/123abc 400 - 53ms - ip ::1
+[2026-10-15T23:51:42.683Z] [WARN] Auth failed: missing token on GET /api/v1/emp/employees
+[2026-10-15T23:51:42.684Z] [WARN] GET /api/v1/emp/employees 401 - 1ms - ip ::1
+[2026-10-15T23:52:25.975Z] [INFO] Employee updated: 6ad1663eae25e71ffd985d11 by user 6ad16589ae25e71ffd985d0f
+[2026-10-15T23:52:25.976Z] [INFO] PUT /api/v1/emp/employees/6ad1663eae25e71ffd985d11 200 - 188ms - ip ::1
+[2026-10-15T23:52:31.147Z] [WARN] Validation failed on PUT /api/v1/emp/employees/6ad1663eae25e71ffd985d11 - fields: user
+[2026-10-15T23:52:31.147Z] [WARN] PUT /api/v1/emp/employees/6ad1663eae25e71ffd985d11 400 - 64ms - ip ::1
+[2026-10-15T23:52:35.086Z] [WARN] Validation failed on PUT /api/v1/emp/employees/6ad1663eae25e71ffd985d11 - fields: body
+[2026-10-15T23:52:35.087Z] [WARN] PUT /api/v1/emp/employees/6ad1663eae25e71ffd985d11 400 - 65ms - ip ::1
+[2026-10-15T23:52:38.837Z] [WARN] PUT /api/v1/emp/employees/6ad0000000000000000000aa 404 - 96ms - ip ::1
+[2026-10-15T23:52:55.230Z] [INFO] Employee deleted: 6ad16644ae25e71ffd985d12 by user 6ad16589ae25e71ffd985d0f
+[2026-10-15T23:52:55.230Z] [INFO] DELETE /api/v1/emp/employees?eid=6ad16644ae25e71ffd985d12 204 - 160ms - ip ::1
+[2026-10-15T23:53:01.536Z] [WARN] DELETE /api/v1/emp/employees?eid=6ad16644ae25e71ffd985d12 404 - 110ms - ip ::1
+[2026-10-15T23:53:05.778Z] [WARN] Validation failed on DELETE /api/v1/emp/employees?eid=123abc - fields: eid
+[2026-10-15T23:53:05.778Z] [WARN] DELETE /api/v1/emp/employees?eid=123abc 400 - 55ms - ip ::1
+[2026-10-15T23:53:09.774Z] [WARN] Validation failed on DELETE /api/v1/emp/employees - fields: eid
+[2026-10-15T23:53:09.775Z] [WARN] DELETE /api/v1/emp/employees 400 - 51ms - ip ::1
+[2026-10-15T23:53:26.086Z] [WARN] Validation failed on DELETE /api/v1/emp/employees - fields: eid
+[2026-10-15T23:53:26.086Z] [WARN] DELETE /api/v1/emp/employees 400 - 50ms - ip ::1
+[2026-10-15T23:53:31.456Z] [WARN] Authorization failed: user 6ad16589ae25e71ffd985d0f tried to access employee 6ad16648ae25e71ffd985d13 owned by another user
+[2026-10-15T23:53:31.457Z] [WARN] PUT /api/v1/emp/employees/6ad16648ae25e71ffd985d13 403 - 105ms - ip ::1
+[2026-10-15T23:53:36.016Z] [WARN] Authorization failed: user 6ad16589ae25e71ffd985d0f tried to access employee 6ad16648ae25e71ffd985d13 owned by another user
+[2026-10-15T23:53:36.016Z] [WARN] DELETE /api/v1/emp/employees?eid=6ad16648ae25e71ffd985d13 403 - 105ms - ip ::1
+[2026-10-15T23:53:40.221Z] [WARN] Authorization failed: user 6ad16590ae25e71ffd985d10 tried to access employee 6ad1663eae25e71ffd985d11 owned by another user
+[2026-10-15T23:53:40.221Z] [WARN] GET /api/v1/emp/employees/6ad1663eae25e71ffd985d11 403 - 101ms - ip ::1
+[2026-10-15T23:53:45.762Z] [WARN] Authorization failed: user 6ad16590ae25e71ffd985d10 tried to access employee 6ad1663eae25e71ffd985d11 owned by another user
+[2026-10-15T23:53:45.762Z] [WARN] PUT /api/v1/emp/employees/6ad1663eae25e71ffd985d11 403 - 103ms - ip ::1
+[2026-10-15T23:53:51.012Z] [WARN] Authorization failed: user 6ad16590ae25e71ffd985d10 tried to access employee 6ad1663eae25e71ffd985d11 owned by another user
+[2026-10-15T23:53:51.012Z] [WARN] DELETE /api/v1/emp/employees?eid=6ad1663eae25e71ffd985d11 403 - 128ms - ip ::1
+[2026-10-15T23:53:55.926Z] [INFO] GET /api/v1/emp/employees/6ad16648ae25e71ffd985d13 200 - 120ms - ip ::1
+[2026-10-15T23:54:15.058Z] [WARN] GET /api/v1/unknown 404 - 0ms - ip ::1
+[2026-10-15T23:54:20.670Z] [WARN] Failed login attempt for username: usera
+[2026-10-15T23:54:20.670Z] [WARN] POST /api/v1/user/login 401 - 130ms - ip ::1
+[2026-10-15T23:54:37.064Z] [WARN] Failed login attempt for username: usera
+[2026-10-15T23:54:37.064Z] [WARN] POST /api/v1/user/login 401 - 149ms - ip ::1
+[2026-10-15T23:54:38.461Z] [WARN] Failed login attempt for username: usera
+[2026-10-15T23:54:38.461Z] [WARN] POST /api/v1/user/login 401 - 148ms - ip ::1
+[2026-10-15T23:54:39.531Z] [WARN] Failed login attempt for username: usera
+[2026-10-15T23:54:39.532Z] [WARN] POST /api/v1/user/login 401 - 141ms - ip ::1
+[2026-10-15T23:54:47.306Z] [WARN] Failed login attempt for username: usera
+[2026-10-15T23:54:47.306Z] [WARN] POST /api/v1/user/login 401 - 143ms - ip ::1
+[2026-10-15T23:54:48.943Z] [WARN] Failed login attempt for username: usera
+[2026-10-15T23:54:48.943Z] [WARN] POST /api/v1/user/login 401 - 166ms - ip ::1
+[2026-10-15T23:54:49.804Z] [WARN] Rate limit hit: POST /api/v1/user/login from ip ::1
+[2026-10-15T23:54:49.804Z] [WARN] POST /api/v1/user/login 429 - 1ms - ip ::1
+[2026-10-15T23:56:25.686Z] [WARN] Rate limit hit: POST /api/v1/user/login from ip ::1
+[2026-10-15T23:56:25.687Z] [WARN] POST /api/v1/user/login 429 - 1ms - ip ::1
+[2026-10-15T23:56:34.647Z] [WARN] GET /api/v1/unknown 404 - 1ms - ip ::1
+[2026-10-15T23:57:02.289Z] [INFO] GET /health 200 - 1ms - ip ::ffff:127.0.0.1
+[2026-10-15T23:57:02.340Z] [WARN] GET /favicon.ico 404 - 1ms - ip ::ffff:127.0.0.1
+[2026-10-15T23:57:04.789Z] [INFO] GET /health 200 - 1ms - ip ::ffff:127.0.0.1
+[2026-10-15T23:57:04.803Z] [WARN] GET /favicon.ico 404 - 0ms - ip ::ffff:127.0.0.1
+[2026-10-15T23:57:48.039Z] [INFO] Server listening on port 8081
+[2026-10-15T23:57:54.521Z] [ERROR] Health check could not reach the DB: bad auth : authentication failed
+[2026-10-15T23:57:54.526Z] [INFO] GET /health 200 - 942ms - ip ::ffff:127.0.0.1
+[2026-10-15T23:57:55.152Z] [ERROR] GET /favicon.ico - MongoServerError: bad auth : authentication failed
+[2026-10-15T23:57:55.153Z] [ERROR] GET /favicon.ico 500 - 605ms - ip ::ffff:127.0.0.1
+[2026-10-15T23:58:24.898Z] [ERROR] GET /api/v1/emp/employees - MongoServerError: bad auth : authentication failed
+[2026-10-15T23:58:24.899Z] [ERROR] GET /api/v1/emp/employees 500 - 551ms - ip ::1
+[2026-10-15T23:58:56.191Z] [INFO] Server listening on port 8081
+[2026-10-15T23:58:58.982Z] [INFO] Successfully connected to the MongoDB Atlas server
+[2026-10-15T23:58:58.992Z] [INFO] GET /health 200 - 692ms - ip ::ffff:127.0.0.1
+[2026-10-15T23:58:59.020Z] [WARN] GET /favicon.ico 404 - 1ms - ip ::ffff:127.0.0.1
